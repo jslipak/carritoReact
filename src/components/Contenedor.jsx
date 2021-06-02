@@ -3,6 +3,9 @@ import NavBar from './NavBar'
 import Cajon from './Cajon'
 import Cajita  from './Cajita'
 import Formulario from './Formulario'
+import fundaPc from '../assets/images/fundaPc.jpg'
+
+
 
 import{
     Hidden,
@@ -19,6 +22,9 @@ const estilos = makeStyles(theme =>({
         flexGrow: 1,
         padding: theme.spacing(3),
       },
+      size: {
+          width: 100,
+      }
 }))
 
 const Contenedor = () => {
@@ -48,10 +54,13 @@ const Contenedor = () => {
             </Hidden>
             <div className={classes.content}>
             <div className={classes.toolbar}> </div>
+            <div className={classes.toolbar}>
+            </div>
             
+       
+            <Cajita  peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
             <Formulario/>
-            <Cajita/>
-    
+       
             </div>
         </div>
     )

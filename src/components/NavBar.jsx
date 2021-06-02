@@ -1,10 +1,9 @@
 import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
 import React from 'react';
-import * as FaIcons from "react-icons/fa";
-import theme from '../temaConfig';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/Icon';
 import {Button} from '@material-ui/core'; //Componente de material UI 
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const drawerWidth = 240;
 
@@ -44,6 +43,9 @@ function NavBar(props){
                 <Typography variant='h6' className={classes.title}>
                         Mi Sitio Web
                 </Typography>
+                <IconButton aria-label="delete">
+                <AddShoppingCartIcon/>      
+                </IconButton>
                 <Button variant="text" color="inherit">
                     Login
                 </Button>    
