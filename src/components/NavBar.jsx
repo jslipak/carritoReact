@@ -1,9 +1,11 @@
-import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, makeStyles, Form} from '@material-ui/core';
 import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/Icon';
 import {Button} from '@material-ui/core'; //Componente de material UI 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
 
 const drawerWidth = 240;
 
@@ -23,16 +25,35 @@ const useStyles = makeStyles(theme  => ({
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
       },
+      root: {
+        '& > *': {
+          margin: theme.spacing(2),
+          width: '25ch',
+        },
+      },
+      rootMargin: {
+        '& .MuiTextField-root': {
+          marginRight: theme.spacing(10),
+          marginBottom: theme.spacing(2),
+          width: 200,
+        },
+      },
+      searchIcon: {
+        marginRight: theme.spacing(2)
+    }
 }));
 
 function NavBar(props){
+
     const classes = useStyles()
+
     return(
  
 
             <AppBar className={classes.appBar}>
                 <Toolbar>
-                <IconButton 
+                    
+                <IconButton  
                 color="secondary" 
                 aria-label="menu" 
                 className={classes.menuButton} 
@@ -40,19 +61,26 @@ function NavBar(props){
                 >
                     <MenuIcon />
                 </IconButton>
+                
                 <Typography variant='h6' className={classes.title}>
-                        Mi Sitio Web
+                        MI SITIO WEB
                 </Typography>
-                <IconButton aria-label="delete">
+                    <SearchIcon className={classes.searchIcon}/>
+                    <form className={classes.rootMargin} noValidate autoComplete="on">
+                        <TextField id="standard-basic" label="Que estás buscando?"  />
+                    </form>
+               
+                <IconButton aria-label="addCar">
                 <AddShoppingCartIcon/>      
                 </IconButton>
-                <Button variant="text" color="inherit">
-                    Login
-                </Button>    
+                 
                 </Toolbar>
+
+
             </AppBar>
 
      
     )
 }
 export default NavBar;
+

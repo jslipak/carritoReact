@@ -16,6 +16,7 @@ const estilos = makeStyles(theme =>({
 
     root: {
         display: 'flex'
+        
     },
     toolbar: theme.mixins.toolbar,
     content: {
@@ -24,6 +25,12 @@ const estilos = makeStyles(theme =>({
       },
       size: {
           width: 100,
+      },
+ 
+      mTopform: {
+        marginTop: 120,
+        alignItems: 'center',
+        marginLeft: 300,
       }
 }))
 
@@ -59,9 +66,13 @@ const Contenedor = () => {
             
        
             <Cajita  peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
-            <Formulario/>
-       
+
+            <section className={classes.mTopform}>
+                <Formulario/>
+            </section>
+
             </div>
+         
         </div>
     )
 }

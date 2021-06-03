@@ -1,9 +1,16 @@
 import React from 'react';
 import './assets/css/App.css';
-import {Button} from '@material-ui/core'; //Componente de material UI 
 import { makeStyles , ThemeProvider} from '@material-ui/styles';
 import theme from './temaConfig';
 import Contenedor from './components/Contenedor.jsx';
+
+//probando rutas
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
   
 //Clase para btn con material UI
 //css en nuestro archivo jsx...
@@ -28,14 +35,15 @@ const classes = useStyles()
   return (
     <div className="App">
       <header className="App-header">
- 
-
-      <ThemeProvider theme={theme}>
- 
-        <Contenedor/>
     
+      <Router>
+        <ThemeProvider theme={theme}>
         
-      </ThemeProvider>
+          <Contenedor/>
+      
+          
+        </ThemeProvider>
+      </Router>
 
       </header>
     </div>

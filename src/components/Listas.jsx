@@ -11,35 +11,15 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import EcoIcon from '@material-ui/icons/Eco';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+
 
 const Listas = () => {
     return (
         <div>
             <List component='nav'>
-                <ListItem button>   
-                    <ListItemIcon>
-                    <AccountCircleIcon/>
 
-                    
-                    </ListItemIcon>
-                    <ListItemText primary='Tu cuenta'/>
-                </ListItem>
-
-                <ListItem button>
-                    <ListItemIcon>
-                    <AddAlertIcon/>
-
-                    </ListItemIcon>
-                    <ListItemText primary='Notificaciones'/>
-                </ListItem>
-
-                <ListItem button>
-                    <ListItemIcon>
-                    <EcoIcon/>
-
-                    </ListItemIcon>
-                    <ListItemText primary='Eco'/>
-                </ListItem>
 
                 <ListItem button>
                     <ListItemIcon>
@@ -47,6 +27,39 @@ const Listas = () => {
 
                     </ListItemIcon>
                     <ListItemText primary='Carrito'/>
+                </ListItem>
+                
+                <ListItem button>   
+                    <ListItemIcon>
+                    <AccountCircleIcon/>
+
+                    
+                    </ListItemIcon>
+                    <ListItemText primary='Compras'/>
+                </ListItem>
+
+                <ListItem button>
+                    <ListItemIcon>
+                    <ContactSupportIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText primary='Preguntas'/>
+                </ListItem>
+
+                <ListItem button>
+                    <ListItemIcon>
+                    <AccountCircleIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText primary='Mis datos'/>
+                </ListItem>
+
+                <ListItem button>
+                    <ListItemIcon>
+                    <NotificationsIcon/>
+
+                    </ListItemIcon>
+                    <ListItemText primary='Alerta de ofertas'/>
                 </ListItem>
 
                 <Divider/>
