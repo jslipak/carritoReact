@@ -4,6 +4,11 @@ import Cajon from './Cajon'
 import Cajita  from './Cajita'
 import Formulario from './Formulario'
 import fundaPc from '../assets/images/fundaPc.jpg'
+import Prueba from '../components/Prueba.jsx'
+import ClassSatePrueba from '../components/ClassSatePrueba.jsx'
+import FunctionStatePrueba from '../components/FunctionStatePrueba.jsx'
+
+
 
 
 
@@ -63,7 +68,6 @@ const Contenedor = () => {
             <div className={classes.toolbar}> </div>
             <div className={classes.toolbar}>
             </div>
-            
        
             <Cajita  peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
 
@@ -71,6 +75,16 @@ const Contenedor = () => {
                 <Formulario/>
             </section>
 
+            <section>
+                <Prueba>
+                    <h2>  PRODUCTOS DE CALIDAD </h2>
+                </Prueba>
+                <ClassSatePrueba/>
+                <FunctionStatePrueba/>
+            </section>
+            
+
+          
             </div>
          
         </div>

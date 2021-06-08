@@ -1,4 +1,18 @@
 import React from 'react'
+import Compras from './Compras'
+import Ofertas from './Ofertas'
+import Preguntas from './Preguntas'
+import Formulario from './Formulario'
+import Carrito from './Formulario'
+
+//probando rutas
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink, 
+  } from "react-router-dom";
+//Cards
 import {
     List,
     ListItem,
@@ -7,66 +21,95 @@ import {
     Divider, 
 } from '@material-ui/core'
 
+
+
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import EcoIcon from '@material-ui/icons/Eco';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 
-const Listas = () => {
+const Listas = () => { //react-router-dom
     return (
-        <div>
-            <List component='nav'>
+        <Router>
+            <div>
+                <List component='nav'>
 
+                    <NavLink to='/carrito' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AddShoppingCartIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Carrito'/>
+                    </ListItem>
+                    </NavLink>
 
-                <ListItem button>
-                    <ListItemIcon>
-                    <AddShoppingCartIcon/>
+                    <NavLink to='/compras' activeClassName="active"> 
+                    <ListItem button>   
+                        <ListItemIcon>
+                            <AccountCircleIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Compras'/>
+                    </ListItem>
+                    </NavLink>
 
-                    </ListItemIcon>
-                    <ListItemText primary='Carrito'/>
-                </ListItem>
-                
-                <ListItem button>   
-                    <ListItemIcon>
-                    <AccountCircleIcon/>
+                    <NavLink to='/preguntas' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                        <ContactSupportIcon/>
 
+                        </ListItemIcon>
+                        <ListItemText primary='Preguntas'/>
+                    </ListItem>
+                    </NavLink>
+
+                    <NavLink to='/formulario' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AccountCircleIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Mis datos'/>
+                    </ListItem>
+                    </NavLink>
                     
-                    </ListItemIcon>
-                    <ListItemText primary='Compras'/>
-                </ListItem>
+                    <NavLink to='/ofertas' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                            <NotificationsIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Alerta de ofertas'/>
+                    </ListItem>
+                    </NavLink>
 
-                <ListItem button>
-                    <ListItemIcon>
-                    <ContactSupportIcon/>
+                    <Divider/>    
 
-                    </ListItemIcon>
-                    <ListItemText primary='Preguntas'/>
-                </ListItem>
+                    <Switch>
+                                {/*Ordenar de lo mas especifico a lo mas global.  */}
+                            <Route path="/carrito">
+                                <Carrito/>
+                            </Route>
+                            <Route path="/compras">
+                                <Compras/>
+                            </Route>
+                            <Route path="/preguntas">
+                                <Preguntas/>
+                            </Route>
+                            <Route path="/formulario">
+                                <Formulario/>
+                            </Route>
+                            <Route path="/ofertas">
+                                <Ofertas/>
+                            </Route>
+                            <Route path="/" exact>  
+                                Esta es la pagina de raiz
+                            </Route>
+                    </Switch>
 
-                <ListItem button>
-                    <ListItemIcon>
-                    <AccountCircleIcon/>
+                </List>
+            </div>
+            
 
-                    </ListItemIcon>
-                    <ListItemText primary='Mis datos'/>
-                </ListItem>
-
-                <ListItem button>
-                    <ListItemIcon>
-                    <NotificationsIcon/>
-
-                    </ListItemIcon>
-                    <ListItemText primary='Alerta de ofertas'/>
-                </ListItem>
-
-                <Divider/>
-
-                
-            </List>
-        </div>
+        </Router>
     )
 }
 

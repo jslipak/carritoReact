@@ -16,7 +16,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import Contador from '../components/Contador.jsx'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
 
     height: 100,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%', 
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -73,11 +73,11 @@ const RecipeReviewCard = (props) => {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-
-          PRECIO: {props.precio}
+          PRECIO: {props.precio}          
+          <Contador/>                                          {/*-----------CONTADOR*--------------*/}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing>        
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>

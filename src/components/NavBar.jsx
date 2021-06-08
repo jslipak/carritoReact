@@ -2,15 +2,15 @@ import { AppBar, Toolbar, Typography, makeStyles, Form} from '@material-ui/core'
 import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/Icon';
-import {Button} from '@material-ui/core'; //Componente de material UI 
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 
+
+
+
 const drawerWidth = 240;
 
-
-//
 const useStyles = makeStyles(theme  => ({
     menuButton: {
         marginRight: theme.spacing(2), //Marguen para que no quede pegado el icon. Mutiplicado por 8px
@@ -49,7 +49,7 @@ function NavBar(props){
 
     return(
  
-
+   
             <AppBar className={classes.appBar}>
                 <Toolbar>
                     
@@ -75,9 +75,9 @@ function NavBar(props){
                 </IconButton>
                  
                 </Toolbar>
-
-
+                
             </AppBar>
+      
 
      
     )

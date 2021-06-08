@@ -4,14 +4,6 @@ import { makeStyles , ThemeProvider} from '@material-ui/styles';
 import theme from './temaConfig';
 import Contenedor from './components/Contenedor.jsx';
 
-//probando rutas
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-  
 //Clase para btn con material UI
 //css en nuestro archivo jsx...
 const useStyles = makeStyles({
@@ -36,14 +28,13 @@ const classes = useStyles()
     <div className="App">
       <header className="App-header">
     
-      <Router>
         <ThemeProvider theme={theme}>
         
           <Contenedor/>
-      
-          
+        
+
         </ThemeProvider>
-      </Router>
+   
 
       </header>
     </div>
