@@ -1,15 +1,10 @@
 import React from 'react'
 import NavBar from './NavBar'
-import Cajon from './Cajon'
-import Cajita  from './Cajita'
+import Box from './Box'
+import CardItem  from './CardIItem'
 import Formulario from './Formulario'
 import fundaPc from '../assets/images/fundaPc.jpg'
-import Prueba from '../components/Prueba.jsx'
-import ClassSatePrueba from '../components/ClassSatePrueba.jsx'
-import FunctionStatePrueba from '../components/FunctionStatePrueba.jsx'
-
-
-
+import Map from '../components/Map.jsx'
 
 
 import{
@@ -52,13 +47,13 @@ const Contenedor = () => {
         <div className={classes.root}>
             <NavBar accionAbrir={accionAbrir}/>
             <Hidden xsDown>  
-                <Cajon  
+                <Box  
                     variant="permanent"
                     open={true} //nuestro cajon de xsdown
                 />
             </Hidden>
             <Hidden smUp>  
-                <Cajon  
+                <Box  
                     variant="temporary"
                     open={abrir} //nuestro cajon de xsdown
                     onClose={accionAbrir}
@@ -69,21 +64,17 @@ const Contenedor = () => {
             <div className={classes.toolbar}>
             </div>
        
-            <Cajita  peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
+            <CardItem peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
 
             <section className={classes.mTopform}>
                 <Formulario/>
             </section>
 
             <section>
-                <Prueba>
-                    <h2>  PRODUCTOS DE CALIDAD </h2>
-                </Prueba>
-                <ClassSatePrueba/>
-                <FunctionStatePrueba/>
+    
+                <Map/>
+          
             </section>
-            
-
           
             </div>
          

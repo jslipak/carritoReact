@@ -5,18 +5,24 @@ import Grid from '@material-ui/core/Grid';
 
 const useContador = () => {
 
-    const [clicks, setClicks] = useState(0)
+    const [clicks, setClicks] = useState(1)
+    const stock = 9
 
     const aumentarContador = () =>{
-        setClicks(clicks + 1)
-        if(clicks >= 5) {
-            
+        if (clicks <= stock) {
+            setClicks(clicks + 1)
         }
+        else{
+            Button.disabled = false
+            alert("Ups! Tenemos solo 10 de estos productos en stock")
+        }
+       
+       
          
     }
 
     const restarContador = () =>{
-        if (clicks > 0) setClicks(clicks -1)
+        if (clicks > 1) setClicks(clicks -1)
     }
     return {clicks, aumentarContador, restarContador}
 

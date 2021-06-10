@@ -20,7 +20,7 @@ const estilos = makeStyles(theme  => ({
     toolbar: theme.mixins.toolbar
 }))
 
-const Cajon = (props) => {
+const Box = (props) => {
 
     const classes = estilos()
 
@@ -43,4 +43,4 @@ const Cajon = (props) => {
     )
 }
 
-export default Cajon
+export default Box
