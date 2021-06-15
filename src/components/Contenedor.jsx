@@ -3,8 +3,12 @@ import NavBar from './NavBar'
 import Box from './Box'
 import CardItem  from './CardIItem'
 import Formulario from './Formulario'
-import fundaPc from '../assets/images/fundaPc.jpg'
-import Map from '../components/Map.jsx'
+import autitos_madera from '../assets/images/autitos_madera.jpg'
+import CicloDeVida from '../components/CicloDeVida'
+import FetchApi from '../components/FetchApi'
+import Routes from '../Routes/' //nuevo
+import {useState} from 'react' //nuevo
+
 
 
 import{
@@ -35,6 +39,10 @@ const estilos = makeStyles(theme =>({
 }))
 
 const Contenedor = () => {
+     
+
+    const [search, setSearch] = useState(null) //nuevo
+    const handlerSearch = (product) => setSearch(product) //nuevo
 
     const classes = estilos()
     const [abrir, setAbrir] = React.useState(false)
@@ -64,20 +72,22 @@ const Contenedor = () => {
             <div className={classes.toolbar}>
             </div>
        
-            <CardItem peso="100" precio="200" img={fundaPc} saludo="HOLA CODER" />
-
-            <section className={classes.mTopform}>
-                <Formulario/>
-            </section>
+            {/*CardItem peso="100" precio="200" img={autitos_madera} saludo="HOLA CODER"*/}
+            
+            <section><hr/>
+            <Routes search={search} handlerSearch={handlerSearch}/>
+            </section><hr/>
 
             <section>
-    
-                <Map/>
-          
-            </section>
-          
+             <FetchApi/>
+             <CicloDeVida/>
+            </section><hr/>
+
+            <section className={classes.mTopform}>
+             <Formulario/>
+            </section><hr/>
+
             </div>
-         
         </div>
     )
 }

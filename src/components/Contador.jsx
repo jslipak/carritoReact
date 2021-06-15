@@ -16,16 +16,12 @@ const useContador = () => {
             Button.disabled = false
             alert("Ups! Tenemos solo 10 de estos productos en stock")
         }
-       
-       
-         
     }
 
     const restarContador = () =>{
         if (clicks > 1) setClicks(clicks -1)
     }
     return {clicks, aumentarContador, restarContador}
-
 }
 
 

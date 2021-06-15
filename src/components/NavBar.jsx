@@ -13,13 +13,14 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme  => ({
     menuButton: {
-        marginRight: theme.spacing(2), //Marguen para que no quede pegado el icon. Mutiplicado por 8px
+        marginRight: theme.spacing(2), //Margen para que no quede pegado el icon. Mutiplicado por 8px
         [theme.breakpoints.up('sm')]: {
             display: 'none',
           }
       },
       title:{
           flexGrow: 1, //flexbox, 
+
       },
       [theme.breakpoints.up('sm')]: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -39,7 +40,11 @@ const useStyles = makeStyles(theme  => ({
         },
       },
       searchIcon: {
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(2),
+        color: '#fffff'
+    },
+    backgrounNav: {
+      backgroundColor: '#795548'
     }
 }));
 
@@ -51,7 +56,7 @@ function NavBar(props){
  
    
             <AppBar className={classes.appBar}>
-                <Toolbar>
+                <Toolbar className={classes.backgrounNav}>
                     
                 <IconButton  
                 color="secondary" 
@@ -63,7 +68,7 @@ function NavBar(props){
                 </IconButton>
                 
                 <Typography variant='h6' className={classes.title}>
-                        MI SITIO WEB
+                    WOODEN GAME
                 </Typography>
                     <SearchIcon className={classes.searchIcon}/>
                     <form className={classes.rootMargin} noValidate autoComplete="on">

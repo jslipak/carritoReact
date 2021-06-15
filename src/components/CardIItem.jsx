@@ -17,6 +17,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Contador from './Contador.jsx'
+import FetchApi from './FetchApi'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,8 +51,9 @@ const RecipeReviewCard = (props) => {
     setExpanded(!expanded);
   };
 
+
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root}> 
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -63,17 +65,17 @@ const RecipeReviewCard = (props) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Funda para tablets"
+        title={props.name}
         subheader="Mayo 06, 2021"
       />
       <CardMedia
         className={classes.media}
         image= {props.img}
-        title="Paella dish"
+        title="Producto"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          PRECIO: {props.precio}          
+          PRECIO: {props.description}          
           <Contador/>                                          {/*-----------CONTADOR*--------------*/}
         </Typography>
       </CardContent>
@@ -97,7 +99,7 @@ const RecipeReviewCard = (props) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{props.saludo}</Typography>
+          <Typography paragraph>{props.name}</Typography>
           <Typography paragraph>
               E S P E C I F I C A C I O N E S
           </Typography>
