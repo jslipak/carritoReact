@@ -1,12 +1,11 @@
-import { AppBar, Toolbar, Typography, makeStyles, Form} from '@material-ui/core';
+import { AppBar, Toolbar, Typography, makeStyles, From} from '@material-ui/core';
 import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/Icon';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
-
-
+import {useHistory} from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -41,21 +40,34 @@ const useStyles = makeStyles(theme  => ({
       },
       searchIcon: {
         marginRight: theme.spacing(2),
-        color: '#fffff'
+        color: '#fffff',
+        marginTop: 20
     },
     backgrounNav: {
       backgroundColor: '#795548'
     }
-}));
+})); 
 
-function NavBar(props){
+const NavBar =  React.memo(({props, handlerSearch, })=> {
 
     const classes = useStyles()
+
+    const history = useHistory(); //este hooks genera el historial de navegacion
+
+    const search = (e) =>{
+      e.preventDefault();  
+      const [{value}] = e.target; //destructuro el primer elemento y me quedo con la prop value. (para no tener un estado)
+      const trimvalue = value.trim()
+      if(trimvalue){ //si la persona busco algo lo seteamos dentro del estado de la app. 
+          handlerSearch(trimvalue);
+          history.push(`./products?search=${trimvalue}`)
+      }
+  };
 
     return(
  
    
-            <AppBar className={classes.appBar}>
+            <AppBar className={classes.AppBar}>
                 <Toolbar className={classes.backgrounNav}>
                     
                 <IconButton  
@@ -70,11 +82,18 @@ function NavBar(props){
                 <Typography variant='h6' className={classes.title}>
                     WOODEN GAME
                 </Typography>
-                    <SearchIcon className={classes.searchIcon}/>
-                    <form className={classes.rootMargin} noValidate autoComplete="on">
-                        <TextField id="standard-basic" label="Que estás buscando?"  />
+                <SearchIcon className={classes.searchIcon}/>
+
+                    <form className={classes.rootMargin} noValidate autoComplete="on"   onSubmit={search}>
+                        <TextField 
+                        id="standard-basic"
+                        label="Que estás buscando?"
+                        name="search"
+                      >
+                          
+                        </TextField>
                     </form>
-               
+             
                 <IconButton aria-label="addCar">
                 <AddShoppingCartIcon/>      
                 </IconButton>
@@ -86,6 +105,6 @@ function NavBar(props){
 
      
     )
-}
+});
 export default NavBar;
 

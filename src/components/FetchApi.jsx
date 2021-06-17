@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import {FETCHING, FETCH_SUCCES} from './../Reducers/actions/products';
-import {BASE_URL} from './../constants';
-import CardItem  from './../components/CardIItem'
-import autitos_madera from '../assets/images/autitos_madera.jpg'
-import Card from '@material-ui/core/Card';
-import { CardActions } from '@material-ui/core';
+import {FETCHING, FETCH_SUCCES} from '../Reducers/actions/products';
+import {BASE_URL} from '../constants';
+import CardItem  from './CardIItem'
 
 
 function FetchApi() {
@@ -33,7 +30,7 @@ function FetchApi() {
     return (
             <> 
           {productos.map( (props)=> (
-              <><h2>Probando maps FetchApi</h2>
+              <>
               {console.log(productos)}
               <CardItem 
               name={props.title}

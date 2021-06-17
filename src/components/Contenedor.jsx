@@ -6,7 +6,7 @@ import Formulario from './Formulario'
 import autitos_madera from '../assets/images/autitos_madera.jpg'
 import CicloDeVida from '../components/CicloDeVida'
 import FetchApi from '../components/FetchApi'
-import Routes from '../Routes/' //nuevo
+import Routes from '../Routes/Routes' //nuevo
 import {useState} from 'react' //nuevo
 
 

@@ -7,6 +7,7 @@ import {BASE_URL} from './../../constants';
 import axios from 'axios';
 import CardItem  from './../../components/CardIItem'
 
+
 const Products = ({search}) => {
     
     const [state, dispatch]  = useReducer(productsReducer, initialState)
@@ -28,10 +29,10 @@ const Products = ({search}) => {
     },[search]) //el useEffect se dispara cuando cambia el search.
 
     return (
-        <>
-          <h3>Productos a traer : {search}</h3> 
-          {state.products.map( (props)=> (
-              <><h2>Este es el Map de products</h2>
+        <>  
+          <h3>Tu buqueda: {search}</h3> 
+              {state.products.map( (props)=> (
+              <>
               <CardItem 
               name={props.title}
               description={props.price}

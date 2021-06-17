@@ -1,9 +1,5 @@
 import React from 'react'
-import Compras from './Compras'
-import Ofertas from './Ofertas'
-import Preguntas from './Preguntas'
-import Formulario from './Formulario'
-import Carrito from './Formulario'
+
 
 //probando rutas
 import {
@@ -35,6 +31,15 @@ const Listas = () => { //react-router-dom
             <div>
                 <List component='nav'>
 
+                <NavLink to='/products' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AddShoppingCartIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Products'/>
+                    </ListItem>
+                    </NavLink>
+
                     <NavLink to='/carrito' activeClassName="active"> 
                     <ListItem button>
                         <ListItemIcon>
@@ -63,7 +68,7 @@ const Listas = () => { //react-router-dom
                     </ListItem>
                     </NavLink>
 
-                    <NavLink to='/formulario' activeClassName="active"> 
+                    <NavLink to='/MisDatos' activeClassName="active"> 
                     <ListItem button>
                         <ListItemIcon>
                             <AccountCircleIcon/>
@@ -82,28 +87,6 @@ const Listas = () => { //react-router-dom
                     </NavLink>
 
                     <Divider/>    
-
-                    <Switch>
-                                {/*Ordenar de lo mas especifico a lo mas global.  */}
-                            <Route path="/carrito">
-                                <Carrito/>
-                            </Route>
-                            <Route path="/compras">
-                                <Compras/>
-                            </Route>
-                            <Route path="/preguntas">
-                                <Preguntas/>
-                            </Route>
-                            <Route path="/formulario">
-                                <Formulario/>
-                            </Route>
-                            <Route path="/ofertas">
-                                <Ofertas/>
-                            </Route>
-                            <Route path="/" exact>  
-                                Esta es la pagina de raiz
-                            </Route>
-                    </Switch>
 
                 </List>
             </div>

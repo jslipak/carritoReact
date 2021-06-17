@@ -1,7 +1,7 @@
 import React from 'react'
-import {useState} from 'react'
 import {Container, Row, Col, Button, Form} from "react-bootstrap"
 import {useHistory} from 'react-router-dom' //cuando se anidan componentes se pierde la info, y este hooks genera este historial de navegacion
+import NavBar from './../../components/NavBar'
 
 //El memo deja estatico el componente sin renderizarlo en cualquier cambio de estado
 const Header = React.memo(({handlerSearch}) => {
@@ -19,21 +19,7 @@ const Header = React.memo(({handlerSearch}) => {
 };
     return (
         <Container>
-            <Row className="justify-content-center">
-                <Col md={6}>
-                    <Form onSubmit={search}>
-                        <Form.Group>
-                            <Form.Control
-                             type="text"
-                             name="Search"
-                             placeholder= "Encotra lo que buscas... " 
-                             
-                             />
-                        </Form.Group>
-                    </Form>
-                </Col>
-            </Row>
-            <h3>Header del nuevo proyecto</h3>
+            <NavBar  handlerSearch={handlerSearch} />
         </Container>
     )
 });
