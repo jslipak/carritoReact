@@ -29,11 +29,13 @@ const Products = ({search}) => {
     },[search]) //el useEffect se dispara cuando cambia el search.
 
     return (
-        <>  
+        <>
           <h3>Tu buqueda: {search}</h3> 
-              {state.products.map( (props)=> (
-              <>
+              {state.products.map( (props, index)=> (
+            <>
               <CardItem 
+              key={index}
+              id={props.id} 
               name={props.title}
               description={props.price}
               img={props.thumbnail}

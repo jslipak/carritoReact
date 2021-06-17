@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import {FETCHING, FETCH_SUCCES} from '../Reducers/actions/products';
 import {BASE_URL} from '../constants';
 import CardItem  from './CardIItem'
-
 
 function FetchApi() {
 
@@ -27,12 +25,15 @@ function FetchApi() {
     },[3000])
 
 
+
     return (
             <> 
-          {productos.map( (props)=> (
+          {productos.map( (props, index)=> (
               <>
               {console.log(productos)}
               <CardItem 
+              key={index}
+              id={props.id} 
               name={props.title}
               description={props.price}
               img={props.thumbnail}

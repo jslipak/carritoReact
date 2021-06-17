@@ -4,8 +4,6 @@ import React from 'react'
 //probando rutas
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     NavLink, 
   } from "react-router-dom";
 //Cards
@@ -30,6 +28,16 @@ const Listas = () => { //react-router-dom
         <Router>
             <div>
                 <List component='nav'>
+
+
+                <NavLink to='/' activeClassName="active"> 
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AddShoppingCartIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Home'/>
+                    </ListItem>
+                    </NavLink>
 
                 <NavLink to='/products' activeClassName="active"> 
                     <ListItem button>
@@ -85,6 +93,8 @@ const Listas = () => { //react-router-dom
                         <ListItemText primary='Alerta de ofertas'/>
                     </ListItem>
                     </NavLink>
+
+                    
 
                     <Divider/>    
 

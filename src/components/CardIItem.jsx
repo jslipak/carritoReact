@@ -17,7 +17,11 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Contador from './Contador.jsx'
-import FetchApi from './FetchApi'
+import {
+  BrowserRouter as Router,
+  Link, 
+} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,14 +53,21 @@ const RecipeReviewCard = (props) => {
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  
   };
+
+  const openDetailItem = (event) => {
+    event.preventDefault();
+    console.log('click en el item');
+
+  }
 
 
   return (
     <Card className={classes.root}> 
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="recipe" className={classes.avatar} >
             F
           </Avatar>
         }
@@ -68,11 +79,21 @@ const RecipeReviewCard = (props) => {
         title={props.name}
         subheader="Mayo 06, 2021"
       />
+
+      <Router>
+      <Link to='/' activeClassName="active">
       <CardMedia
+        href="productos/{props.id}"
+        onClick={openDetailItem}
         className={classes.media}
+        id={props.id}
         image= {props.img}
-        title="Producto"
-      />
+        title="Producto">
+         
+        </CardMedia>
+      </Link>
+      </Router>
+
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           PRECIO: {props.description}          
