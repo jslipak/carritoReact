@@ -7,6 +7,7 @@ import Ofertas from "../Pages/Ofertas/Ofertas";
 import Preguntas from "../Pages/Preguntas/Preguntas";
 import MisDatos from "../Pages/MisDatos/MisDatos";
 import Carrito from "../Pages/Carrito/Carrito";
+import NotFound from "../Pages/NotFound/NotFound";
 
 const Routes = ({ handlerSearch, search }) => {
   return (
@@ -17,12 +18,14 @@ const Routes = ({ handlerSearch, search }) => {
         <Route path="/products">
           <Products  search={search}/>
         </Route>
+        <Route path="*" exact component={NotFound} />
         <Route path="/carrito" component={Carrito}/>
         <Route path="/compras" component={Compras}/>
         <Route path="/preguntas" component={Preguntas}/>
         <Route path="/MisDatos" component={MisDatos}/>
         <Route path="/ofertas" component={Ofertas}/>
         <Route path="/" exact component={Home} />
+        
       </Switch>
     </Router>
   );
