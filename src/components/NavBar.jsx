@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme  => ({
     }
 })); 
 
-const NavBar =  React.memo(({props, handlerSearch, })=> {
+const NavBar =  React.memo(({props, handlerSearch})=> {
 
     const classes = useStyles()
 
@@ -65,14 +65,16 @@ const NavBar =  React.memo(({props, handlerSearch, })=> {
       }
   };
 
+  
+
     return(
- 
-   
+
+          
             <AppBar className={classes.AppBar}>
                 <Toolbar className={classes.backgrounNav}>
                     
                 <IconButton  
-                color="secondary" 
+                color="withe" 
                 aria-label="menu" 
                 className={classes.menuButton} 
                 onClick={() => props.accionAbrir}
@@ -102,7 +104,7 @@ const NavBar =  React.memo(({props, handlerSearch, })=> {
                 </Toolbar>
                 
             </AppBar>
-      
+           
 
      
     )

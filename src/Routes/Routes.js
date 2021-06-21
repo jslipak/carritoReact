@@ -9,7 +9,7 @@ import Preguntas from "../Pages/Preguntas/Preguntas";
 import MisDatos from "../Pages/MisDatos/MisDatos";
 import Carrito from "../Pages/Carrito/Carrito";
 import NotFound from "../Pages/NotFound/NotFound";
-import ItemDetailCard from "../Pages/ItemDetailCard/ItemDetailCard"
+import ItemDetailCard from "../components/ItemDetailCard"
 import{ Hidden} from '@material-ui/core'
 import Box from './../components/Box'
 

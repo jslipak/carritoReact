@@ -54,7 +54,7 @@ function FetchApi() {
               img={props.thumbnail}
               >
               </CardItem>
-              <hr/>
+             
               
             </>
           

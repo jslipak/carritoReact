@@ -55,7 +55,7 @@ const Products = ({search}) => {
               img={props.thumbnail}
               >
               </CardItem>
-              <hr/>
+           
             </>
               
           ))}
