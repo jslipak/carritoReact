@@ -2,9 +2,10 @@ import React from 'react';
 import './assets/css/App.css';
 import { ThemeProvider} from '@material-ui/styles';
 import theme from './temaConfig';
-import Routes from './Routes/Routes' //nuevo
-import {useState} from 'react' //nuevo
-import{ makeStyles} from '@material-ui/core'
+import Routes from './Routes/Routes'; //nuevo
+import {useState} from 'react'; //nuevo
+import{ makeStyles} from '@material-ui/core';
+
 
 
 const useStyles = makeStyles( theme =>({
@@ -18,7 +19,8 @@ const useStyles = makeStyles( theme =>({
     padding: '0 30px',
   },
   root: {
-    display: 'flex'
+    display: 'flex',
+    minWidth: 200,
     
   },
   toolbar: theme.mixins.toolbar,
@@ -43,6 +45,7 @@ const App = ()  =>{
 
 
   return (
+   
     <div className="App">
       <header className="App-header">
       <div className={classes.root}>
@@ -59,14 +62,16 @@ const App = ()  =>{
         </div>
         </div>
 
-
-        <ThemeProvider theme={theme}>
-        
-            <Routes search={search} handlerSearch={handlerSearch}/>
- 
-        </ThemeProvider>
+    
+            <ThemeProvider theme={theme}>
+            
+                <Routes search={search} handlerSearch={handlerSearch}/>
+    
+            </ThemeProvider>
+       
       </header>
     </div>
+
   );
 }
 

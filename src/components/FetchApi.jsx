@@ -2,11 +2,14 @@ import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {BASE_URL} from '../constants';
 import CardItem  from '../components/CardIItem'
-import { Row } from 'react-bootstrap';
+import {Grid} from '@material-ui/core';
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
+        paddingBottom: '100px',
+        marginRight: '10px',
+      
       }
   
   });
@@ -20,7 +23,7 @@ function FetchApi() {
     const fetchData = async () => {
         
         try{
-            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=juguetesdemadera&limit=6`)//URL aqui. 
+            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=juguetesdemadera&limit=8`)//URL aqui. 
             const datos = await res.json()
             //console.log(datos.results)
             setProductos(datos.results)
@@ -36,11 +39,13 @@ function FetchApi() {
 
 
     return (
-            <div className={classes.container}> 
+
+        <div className={classes.container}> 
+         <Grid container spacing={8} >
          
           {productos.map( (props, index)=> (
               <>
-              {console.log(productos)}
+          
               <CardItem 
               key={index}
               id={props.id} 
@@ -55,6 +60,8 @@ function FetchApi() {
           
               
           ))}
+               
+          </Grid>
         </div>
     );
 }

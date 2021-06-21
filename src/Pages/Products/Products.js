@@ -6,16 +6,29 @@ import {FETCHING, FETCH_SUCCES} from './../../Reducers/actions/products';
 import {BASE_URL} from './../../constants';
 import axios from 'axios';
 import CardItem  from '../../components/CardIItem'
+import {Grid} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        paddingBottom: '100px',
+        marginRight: '10px',
+      
+      }
+  
+  });
 
 const Products = ({search}) => {
     
+    const classes = useStyles();
     const [state, dispatch]  = useReducer(productsReducer, initialState)
 
     const getProducts = async () => {
         try{
             const {data: info} = await axios.get(
-                `${BASE_URL}/sites/MLA/search?q=${search}&limit=10`);
+                `${BASE_URL}/sites/MLA/search?q=${search}&limit=8`);
             //console.log(info.results)
             dispatch({type: FETCH_SUCCES, payload: {data: info.results}})
             
@@ -29,9 +42,10 @@ const Products = ({search}) => {
     },[search]) //el useEffect se dispara cuando cambia el search.
 
     return (
-        <>
-          <h3>Tu buqueda: {search}</h3> 
-              {state.products.map( (props, index)=> (
+
+        <div className={classes.container}> 
+         <Grid container spacing={8} >
+            {state.products.map( (props, index)=> (
             <>
               <CardItem 
               key={index}
@@ -45,7 +59,8 @@ const Products = ({search}) => {
             </>
               
           ))}
-        </>
+         </Grid>
+        </div>
         
     )
 };
