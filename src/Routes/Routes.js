@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../Pages/Home";
-import Header from "../components/Header";
 import Products from "../Pages/Products/Products";
 import Compras from "../Pages/Compras/Compras";
 import Ofertas from "../Pages/Ofertas/Ofertas";
@@ -12,19 +11,38 @@ import NotFound from "../Pages/NotFound/NotFound";
 import ItemDetailCard from "../components/ItemDetailCard"
 import{ Hidden} from '@material-ui/core'
 import Box from './../components/Box'
+import{ makeStyles} from '@material-ui/core';
+import NavBar from './../components/NavBar'
+
+const useStyles = makeStyles( theme =>({
+  root: {
+    display: 'flex',
+    minWidth: 100,
+    
+  },
+  toolbar: theme.mixins.toolbar,
+  content: {
+      flexGrow: 1,
+      padding: theme.spacing(1),
+    },
+    size: {
+        width: 100,
+    },
+}));
 
 const Routes = ({ handlerSearch, search }) => {
 
   const [abrir, setAbrir] = React.useState(false)
 
+  const classes = useStyles()
+
   const accionAbrir =() => {
     setAbrir(!abrir)
 }
-
-
   return (
     <Router>
-
+      <div className={classes.root}>
+      <NavBar handlerSearch={handlerSearch} accionAbrir={accionAbrir}  />
       <Hidden xsDown>  
             <Box  
                 variant="permanent"
@@ -38,9 +56,16 @@ const Routes = ({ handlerSearch, search }) => {
                 onClose={accionAbrir}
             />
       </Hidden>
+  
 
-      <Header handlerSearch={handlerSearch} />
+ 
+
+      </div>
+        <div className={classes.content}>
+        <div className={classes.toolbar}> </div>
+
       <Switch>
+
         {/*Ordenar de lo mas especifico a lo mas global.  */}
         <Route path="/products/">
           <Products  search={search}/>
@@ -55,7 +80,9 @@ const Routes = ({ handlerSearch, search }) => {
         </Route>
         <Route path="/" exact component={Home} />
         <Route path="*" component={NotFound} />
+        
       </Switch>
+      </div>
     </Router>
   );
 };

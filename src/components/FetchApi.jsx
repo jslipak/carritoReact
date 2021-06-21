@@ -23,7 +23,7 @@ function FetchApi() {
     const fetchData = async () => {
         
         try{
-            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=juguetesdemadera&limit=8`)//URL aqui. 
+            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=pelota&limit=8`)//URL aqui. 
             const datos = await res.json()
             //console.log(datos.results)
             setProductos(datos.results)

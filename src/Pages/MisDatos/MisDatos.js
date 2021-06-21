@@ -4,11 +4,15 @@ import{ makeStyles} from '@material-ui/core'
 
 
 const estilos = makeStyles(theme =>({
- 
+
       mTopform: {
         marginTop: 120,
         alignItems: 'center',
         marginLeft: 300,
+      },
+      container: {
+          display: 'flex',
+          alignItems: 'center',
       }
 }))
 
@@ -18,11 +22,11 @@ const MisDatos = () => {
     const classes = estilos()
 
     return (
-        <div>
+        <div className={classes.container}>
             <h1>Mis Datos</h1>
             <section className={classes.mTopform}>
              <Formulario/>
-            </section><hr/>
+            </section>
         </div>
     )
 }

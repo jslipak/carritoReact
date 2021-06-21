@@ -21,10 +21,6 @@ const useStyles = makeStyles(theme  => ({
           flexGrow: 1, //flexbox, 
 
       },
-      [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-      },
       root: {
         '& > *': {
           margin: theme.spacing(2),
@@ -43,12 +39,18 @@ const useStyles = makeStyles(theme  => ({
         color: '#fffff',
         marginTop: 20
     },
-    backgrounNav: {
-      backgroundColor: '#795548'
+      backgrounNav: {
+      backgroundColor: '#795548',
+    },
+    appBar:{
+      [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
     }
+  }
 })); 
 
-const NavBar =  React.memo(({props, handlerSearch})=> {
+const NavBar =  React.memo(({ props,handlerSearch })=> {
 
     const classes = useStyles()
 
@@ -65,19 +67,18 @@ const NavBar =  React.memo(({props, handlerSearch})=> {
       }
   };
 
-  
 
     return(
 
           
-            <AppBar className={classes.AppBar}>
+            <AppBar className={classes.appBar}>
                 <Toolbar className={classes.backgrounNav}>
                     
                 <IconButton  
                 color="withe" 
                 aria-label="menu" 
                 className={classes.menuButton} 
-                onClick={() => props.accionAbrir}
+                onClick={() => props.accionAbrir()}
                 >
                     <MenuIcon />
                 </IconButton>
@@ -85,6 +86,7 @@ const NavBar =  React.memo(({props, handlerSearch})=> {
                 <Typography variant='h6' className={classes.title}>
                     WOODEN GAME
                 </Typography>
+
                 <SearchIcon className={classes.searchIcon}/>
 
                     <form className={classes.rootMargin} noValidate autoComplete="on"   onSubmit={search}>
@@ -92,8 +94,7 @@ const NavBar =  React.memo(({props, handlerSearch})=> {
                         id="standard-basic"
                         label="Que estás buscando?"
                         name="search"
-                      >
-                          
+                      > 
                         </TextField>
                     </form>
              

@@ -16,12 +16,16 @@ const estilos = makeStyles(theme  => ({
     },
     drawerPaper: {
         width: drawerWidth,
+       
     },
     toolbar: theme.mixins.toolbar
+    
+    
 }))
 
 const Box = (props) => {
 
+    
     const classes = estilos()
 
     return (
@@ -37,6 +41,7 @@ const Box = (props) => {
         
         >
         <div className={classes.toolbar}></div>    
+    
         <Divider/>
         <Listas/>
         </Drawer>
