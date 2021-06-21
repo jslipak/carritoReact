@@ -5,7 +5,7 @@ import {productsReducer, initialState} from './../../Reducers/products';
 import {FETCHING, FETCH_SUCCES} from './../../Reducers/actions/products';
 import {BASE_URL} from './../../constants';
 import axios from 'axios';
-import CardItem  from './../../components/CardIItem'
+import CardItem  from '../../components/CardIItem'
 
 
 const Products = ({search}) => {

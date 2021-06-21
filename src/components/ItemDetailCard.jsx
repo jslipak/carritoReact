@@ -1,6 +1,8 @@
 
 import React ,{useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import {BASE_URL} from '../constants';
+import {useParams} from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,30 +10,39 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {BASE_URL} from '../constants';
+
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 845,
+    marginBottom: 100,
   },
   media: {
-    height: 140,
+    height: 240,
   },
+
 });
 
 const ItemDetailCard = () => {
 
     const classes = useStyles();
 
+
+
     const [dataDetail, setProductos] = useState([])
+
+
+    let id = useParams().id; 
+    let title = useParams().title;
+    console.log(id, title)
 
     const fetchData = async () => {
         
         try{
-            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=autosdeMadera&limit=1`)//URL aqui. 
+            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=${title}&FilterID=${id}`)//URL aqui. 
             const datos = await res.json()
             //console.log(datos.results)
-            setProductos(datos.results)
+            setProductos(datos.results[0])
         }catch (error){
             console.log(error)
         }
@@ -43,26 +54,24 @@ const ItemDetailCard = () => {
     },[3000])
 
 
-
-
-    return (
-        <>
-        {dataDetail.map( (props, index)=> (
-        <Card className={classes.root}>
+    return  (
+      <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
-            key={index}
-            id={props.id} 
-            className={classes.media}
-            image={props.thumbnail}
-           
+            component="img"
+            alt="ProductoDetalle"
+            height="400"
+            Width="400"
+            image={dataDetail.thumbnail}
+            title=    {dataDetail.title}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-            <p>{props.title}</p>
+              {dataDetail.title}
+             
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" >
-                <p> {props.description}</p>
+            <Typography variant="body2" color="textSecondary" component="p">
+             Precio: {dataDetail.price}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -71,14 +80,11 @@ const ItemDetailCard = () => {
             Volver
           </Button>
           <Button size="small" color="primary">
-            Agregar al Carrito
+            Comprar
           </Button>
         </CardActions>
       </Card>
-        ))}
-      </>
-      
-    )
-}
+    );
+  }
 
 export default ItemDetailCard

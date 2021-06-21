@@ -3,7 +3,6 @@ import React from 'react'
 
 //probando rutas
 import {
-    BrowserRouter as Router,
     NavLink, 
   } from "react-router-dom";
 //Cards
@@ -25,7 +24,7 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 
 const Listas = () => { //react-router-dom
     return (
-        <Router>
+
             <div>
                 <List component='nav'>
 
@@ -102,7 +101,7 @@ const Listas = () => { //react-router-dom
             </div>
             
 
-        </Router>
+        
     )
 }
 

@@ -1,15 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {BASE_URL} from '../constants';
-import CardItem  from './CardIItem'
+import CardItem  from '../components/CardIItem'
+import { Row } from 'react-bootstrap';
 
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+      }
+  
+  });
+  
 function FetchApi() {
+
+    const classes = useStyles();
 
     const [productos, setProductos] = useState([])
 
     const fetchData = async () => {
         
         try{
-            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=autosdeMadera&limit=6`)//URL aqui. 
+            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=juguetesdemadera&limit=6`)//URL aqui. 
             const datos = await res.json()
             //console.log(datos.results)
             setProductos(datos.results)
@@ -17,7 +28,6 @@ function FetchApi() {
             console.log(error)
         }
     }
-
   
     useEffect(() => {
         console.log('useEffect')
@@ -25,9 +35,9 @@ function FetchApi() {
     },[3000])
 
 
-
     return (
-            <> 
+            <div className={classes.container}> 
+         
           {productos.map( (props, index)=> (
               <>
               {console.log(productos)}
@@ -40,10 +50,12 @@ function FetchApi() {
               >
               </CardItem>
               <hr/>
+              
             </>
+          
               
           ))}
-        </>
+        </div>
     );
 }
 

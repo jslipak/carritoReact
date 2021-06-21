@@ -75,7 +75,7 @@ const NavBar =  React.memo(({props, handlerSearch, })=> {
                 color="secondary" 
                 aria-label="menu" 
                 className={classes.menuButton} 
-                onClick={() => props.accionAbrir()}
+                onClick={() => props.accionAbrir}
                 >
                     <MenuIcon />
                 </IconButton>

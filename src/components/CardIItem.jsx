@@ -26,6 +26,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    margin: 10,
   },
   media: {
 
@@ -56,12 +57,6 @@ const RecipeReviewCard = (props) => {
   
   };
 
-  const openDetailItem = (event) => {
-    event.preventDefault();
-    console.log('click en el item');
-
-  }
-
 
   return (
     <Card className={classes.root}> 
@@ -77,23 +72,19 @@ const RecipeReviewCard = (props) => {
           </IconButton>
         }
         title={props.name}
-        subheader="Mayo 06, 2021"
+        subheader={<small> {new Date().toLocaleString()}</small>}
       />
 
-      <Router>
-      <Link to='/' activeClassName="active">
+  
+      <Link to={`/ItemDetailCard/${props.id}/${props.name}`}>
       <CardMedia
-        href="productos/{props.id}"
-        onClick={openDetailItem}
         className={classes.media}
         id={props.id}
         image= {props.img}
         title="Producto">
-         
         </CardMedia>
       </Link>
-      </Router>
-
+   
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           PRECIO: {props.description}          
@@ -120,16 +111,13 @@ const RecipeReviewCard = (props) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{props.name}</Typography>
           <Typography paragraph>
               E S P E C I F I C A C I O N E S
           </Typography>
           <Typography paragraph>
+        
+           Acá van especificaciones si quiero poner
 
-
-          - Interior de felpa con microfibra protector anti rayas.
-          - 80% Poliester / 10% Espuma de Poliuretano
-          - Medidas : 36 x 25,5 x 2 cms
           </Typography>
           <Typography paragraph>
             
@@ -138,7 +126,7 @@ const RecipeReviewCard = (props) => {
           </Typography>
           <Typography>
           
-          ENVIO GRATIS
+           ENVIO SIN CARGO
           </Typography>
         </CardContent>
       </Collapse>

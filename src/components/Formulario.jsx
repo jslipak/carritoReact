@@ -37,6 +37,11 @@ const useStyles = makeStyles({
  
 })
 
+function onInput(e){
+  e.preventDefault();
+  console.log('e.preventDefault!')
+}
+
 const Formulario = () => {
 
     const classes = useStyles()
@@ -46,7 +51,7 @@ const Formulario = () => {
             <Grid  item xs={12} sm={6} md={4} >
             <FormControl  className= {classes.miInputPersonalizadoMargin}>
              <InputLabel htmlFor="email" className= {classes.miInputPersonalizado}> Email </InputLabel>
-                <Input id="email" type="email" aria-describedby="email-helper" className= {classes.miInputPersonalizado}/> 
+                <Input id="email" type="email" aria-describedby="email-helper" className= {classes.miInputPersonalizado} onKeyDown={onInput}/> 
                 <FormHelperText id="email-helper" className= {classes.miInputPersonalizado}> Coloca tu email</FormHelperText>
             </FormControl>
             </Grid >

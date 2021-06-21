@@ -42,7 +42,6 @@ const Contador = () =>  {
             <Button> Agregar al carrito</Button>
             
         </div>
-        <small> {new Date().toLocaleString()}</small>
         </>
     )
 }

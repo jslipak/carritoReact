@@ -4,8 +4,7 @@ import { ThemeProvider} from '@material-ui/styles';
 import theme from './temaConfig';
 import Routes from './Routes/Routes' //nuevo
 import {useState} from 'react' //nuevo
-import{ Hidden, makeStyles} from '@material-ui/core'
-import Box from './components/Box'
+import{ makeStyles} from '@material-ui/core'
 
 
 const useStyles = makeStyles( theme =>({
@@ -41,12 +40,6 @@ const App = ()  =>{
 
   const classes = useStyles()
 
-  const [abrir, setAbrir] = React.useState(false)
-
-  const accionAbrir =() => {
-      setAbrir(!abrir)
-  }
-
 
 
   return (
@@ -54,22 +47,11 @@ const App = ()  =>{
       <header className="App-header">
       <div className={classes.root}>
 
-        <Hidden xsDown>  
-            <Box  
-                variant="permanent"
-                open={true} //nuestro cajon de xsdown
-            />
-        </Hidden>
-        <Hidden smUp>  
-            <Box  
-                variant="temporary"
-                open={abrir} //nuestro cajon de xsdown
-                onClose={accionAbrir}
-            />
-        </Hidden>
+       
         <div className={classes.content}>
         <div className={classes.toolbar}> </div>
         <div className={classes.toolbar}>
+
         </div>
           {/*<section>
           <CicloDeVida/>
