@@ -20,34 +20,50 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import HomeIcon from '@material-ui/icons/Home';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import HistoryIcon from '@material-ui/icons/History';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles({
+    link: {
+        textDecoration: 'none',
+        color: '#545454',
+      }
+  
+  });
+  
 
 const Listas = () => { //react-router-dom
+
+    const classes = useStyles()
+
     return (
 
             <div>
                 <List component='nav'>
 
 
-                <NavLink to='/' activeClassName="active"> 
+                <NavLink to='/' activeClassName="active" className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
-                            <AddShoppingCartIcon/>
+                            <HomeIcon/>
                         </ListItemIcon>
                         <ListItemText primary='Home'/>
                     </ListItem>
                     </NavLink>
 
-                <NavLink to='/products' activeClassName="active"> 
+                <NavLink to='/products' activeClassName="active"  className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
-                            <AddShoppingCartIcon/>
+                            <AddCircleOutlineIcon/>
                         </ListItemIcon>
                         <ListItemText primary='Products'/>
                     </ListItem>
                     </NavLink>
 
-                    <NavLink to='/carrito' activeClassName="active"> 
+                    <NavLink to='/carrito' activeClassName="active"  className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
                             <AddShoppingCartIcon/>
@@ -56,16 +72,16 @@ const Listas = () => { //react-router-dom
                     </ListItem>
                     </NavLink>
 
-                    <NavLink to='/compras' activeClassName="active"> 
+                    <NavLink to='/compras' activeClassName="active"  className={classes.link} > 
                     <ListItem button>   
                         <ListItemIcon>
-                            <AccountCircleIcon/>
+                            <HistoryIcon/>
                         </ListItemIcon>
-                        <ListItemText primary='Compras'/>
+                        <ListItemText primary='Tus Compras'/>
                     </ListItem>
                     </NavLink>
 
-                    <NavLink to='/preguntas' activeClassName="active"> 
+                    <NavLink to='/preguntas' activeClassName="active"  className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
                         <ContactSupportIcon/>
@@ -75,7 +91,7 @@ const Listas = () => { //react-router-dom
                     </ListItem>
                     </NavLink>
 
-                    <NavLink to='/MisDatos' activeClassName="active"> 
+                    <NavLink to='/MisDatos' activeClassName="active"  className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
                             <AccountCircleIcon/>
@@ -84,7 +100,7 @@ const Listas = () => { //react-router-dom
                     </ListItem>
                     </NavLink>
                     
-                    <NavLink to='/ofertas' activeClassName="active"> 
+                    <NavLink to='/ofertas' activeClassName="active"  className={classes.link} > 
                     <ListItem button>
                         <ListItemIcon>
                             <NotificationsIcon/>

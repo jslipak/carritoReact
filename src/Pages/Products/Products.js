@@ -14,8 +14,8 @@ const useStyles = makeStyles({
     container: {
         display: 'flex',
         paddingBottom: '100px',
-        marginRight: '10px',
-      
+        marginRight: '50px',
+        marginLeft: '290px'  
       }
   
   });
@@ -28,7 +28,7 @@ const Products = ({search}) => {
     const getProducts = async () => {
         try{
             const {data: info} = await axios.get(
-                `${BASE_URL}/sites/MLA/search?q=${search}&limit=8`);
+                `${BASE_URL}/sites/MLA/search?q=${search}&limit=9`);
             //console.log(info.results)
             dispatch({type: FETCH_SUCCES, payload: {data: info.results}})
             
@@ -45,6 +45,7 @@ const Products = ({search}) => {
 
         <div className={classes.container}> 
          <Grid container spacing={8} >
+
             {state.products.map( (props, index)=> (
             <>
               <CardItem 
@@ -55,10 +56,10 @@ const Products = ({search}) => {
               img={props.thumbnail}
               >
               </CardItem>
-           
             </>
               
           ))}
+
          </Grid>
         </div>
         

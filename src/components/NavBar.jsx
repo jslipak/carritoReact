@@ -63,7 +63,6 @@ const NavBar =  React.memo(({ props,handlerSearch })=> {
       if(trimvalue){ //si la persona busco algo lo seteamos dentro del estado de la app. 
           handlerSearch(trimvalue);
           history.push(`./products?search=${trimvalue}`)
-          
       }
   };
 

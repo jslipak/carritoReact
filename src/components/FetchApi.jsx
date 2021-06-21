@@ -8,8 +8,8 @@ const useStyles = makeStyles({
     container: {
         display: 'flex',
         paddingBottom: '100px',
-        marginRight: '10px',
-      
+        marginRight: '50px',
+        marginLeft: '290px'  
       }
   
   });
@@ -23,7 +23,7 @@ function FetchApi() {
     const fetchData = async () => {
         
         try{
-            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=pelota&limit=8`)//URL aqui. 
+            const res = await fetch(`${BASE_URL}/sites/MLA/search?q=pelota&limit=9`)//URL aqui. 
             const datos = await res.json()
             //console.log(datos.results)
             setProductos(datos.results)
@@ -45,7 +45,6 @@ function FetchApi() {
          
           {productos.map( (props, index)=> (
               <>
-          
               <CardItem 
               key={index}
               id={props.id} 
@@ -54,8 +53,6 @@ function FetchApi() {
               img={props.thumbnail}
               >
               </CardItem>
-             
-              
             </>
           
               

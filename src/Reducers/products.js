@@ -1,5 +1,6 @@
 import {FETCHING, FETCH_SUCCES} from "./actions/products";
 
+
 export const initialState = {
     fetching: true, 
     products: [],
