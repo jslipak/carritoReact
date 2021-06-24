@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 
 function onInput(e){
   e.preventDefault();
-  console.log('e.preventDefault!')
+  console.log('e.preventDefault! ')
 }
 
 const Formulario = () => {
@@ -58,7 +58,7 @@ const Formulario = () => {
             <Grid item xs={12} sm={6} md={4}>
             <FormControl className= {classes.miInputPersonalizadoMargin}>
                  <InputLabel htmlFor="pwd" className= {classes.miInputPersonalizado} > Password </InputLabel>
-                <Input id="pwd" type="password" aria-describedby="password-helper" className= {classes.miInputPersonalizado}/> 
+                <Input id="pwd" type="password" aria-describedby="password-helper" className= {classes.miInputPersonalizado} onKeyDown={onInput}/> 
                 <FormHelperText id="password-helper" className= {classes.miInputPersonalizado}> Coloca tu password</FormHelperText>
             </FormControl>
             </Grid>

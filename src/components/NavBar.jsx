@@ -2,11 +2,10 @@ import { AppBar, Toolbar, Typography, makeStyles, From} from '@material-ui/core'
 import React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/Icon';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import {useHistory} from 'react-router-dom';
-
+import CardWidget from './CardWidget'
 
 const drawerWidth = 240;
 
@@ -96,10 +95,8 @@ const NavBar =  React.memo(({ props,handlerSearch })=> {
                       > 
                         </TextField>
                     </form>
-             
-                <IconButton aria-label="addCar">
-                <AddShoppingCartIcon/>      
-                </IconButton>
+                <CardWidget/>
+            
                  
                 </Toolbar>
                 

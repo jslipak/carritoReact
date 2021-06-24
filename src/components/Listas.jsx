@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {useState, createContext} from 'react'; //CLASE 10
+import Clase10 from '../components/Clase10' //CLASE 10
 
 //probando rutas
 import {
@@ -26,6 +27,10 @@ import HistoryIcon from '@material-ui/icons/History';
 import { makeStyles } from '@material-ui/core/styles';
 
 
+
+
+export const ThemeContext = createContext();
+
 const useStyles = makeStyles({
     link: {
         textDecoration: 'none',
@@ -36,6 +41,13 @@ const useStyles = makeStyles({
   
 
 const Listas = () => { //react-router-dom
+
+
+    const [darkTheme, setDarkTheme] = useState(false); //CLASE 10
+
+    function toggleTheme() {
+      setDarkTheme(prevDarkTheme => !prevDarkTheme)
+    }
 
     const classes = useStyles()
 
@@ -111,9 +123,14 @@ const Listas = () => { //react-router-dom
 
                     
 
-                    <Divider/>    
+                <Divider/>    
 
                 </List>
+                <ThemeContext.Provider value={darkTheme}>
+                <button onClick={toggleTheme}> Cambiar Tema</button>
+                <Clase10/>
+                </ThemeContext.Provider>
+       
             </div>
             
 

@@ -43,6 +43,7 @@ const Routes = ({ handlerSearch, search }) => {
     <Router>
       <div className={classes.root}>
       <NavBar handlerSearch={handlerSearch} accionAbrir={accionAbrir}  />
+
       <Hidden xsDown>  
             <Box  
                 variant="permanent"
@@ -57,9 +58,6 @@ const Routes = ({ handlerSearch, search }) => {
             />
       </Hidden>
   
-
- 
-
       </div>
         <div className={classes.content}>
         <div className={classes.toolbar}> </div>

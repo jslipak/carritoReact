@@ -2,8 +2,24 @@ import React, {useState} from 'react'
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import ItemDetailCard from './ItemDetailCard'
+
+const useStyles = makeStyles({
+
+    contador:{
+      marginTop: 20,
+    },
+    btnAddToCar: {
+        marginBottom: 20
+    }
+  
+  });
+
 
 const useContador = () => {
+
 
     const [clicks, setClicks] = useState(1)
     const stock = 9
@@ -25,21 +41,30 @@ const useContador = () => {
 }
 
 
+
 const Contador = () =>  {
+
+    const classes = useStyles();
 
     const {clicks, aumentarContador, restarContador} = useContador(0)
 
     return (
         <>
-        <Grid>
+        <Grid className={classes.contador}>
             <ButtonGroup disableElevation variant="contained" color="primary">
                 <Button onClick={aumentarContador}> + </Button>
                 <Button onClick={restarContador}> - </Button>
             </ButtonGroup>
-            <p>{`Candtidad ${clicks}`}</p>
+            <p>{`Candtidad ${clicks}` }  </p>
+
         </Grid>
+            
         <div>
-            <Button> Agregar al carrito</Button>
+            
+            <Button variant="contained" color="primary" className={classes.btnAddToCar}>
+            Agregar al carrito</Button>
+            <Typography/>
+            <Button variant="contained" color="primary"> Terminar Compra</Button>
             
         </div>
         </>
